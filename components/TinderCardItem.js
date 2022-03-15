@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaUndoAlt } from 'react-icons/fa'
 import { AiOutlineClose } from 'react-icons/ai'
 import { AiFillStar } from 'react-icons/ai'
 import { BsFillLightningChargeFill } from 'react-icons/bs'
 import TinderCard from 'react-tinder-card'
+import { TinderContext } from '../context/TinderContext'
 
 
 const style = {
@@ -24,10 +25,12 @@ const style = {
 
 
 const TinderCardItem = ({card}) => {
-    console.log(card)
+
+    const { handleRightSwipe, currentAccount } = useContext(TinderContext)
+
     const onSwipe = dir => {
         if (dir === 'right') {
-            // handleRightSwipe(card,currentAccount)
+            handleRightSwipe(card,currentAccount)
         }
     }
 
